@@ -1,14 +1,14 @@
-#What is this?
+# What is this?
 It's a library to make it easier to write chainable middlewares for express
 
-#Why?
+# Why?
 - Assigning things to req doesn't look good
 - I'd like to forget about req, res, next and just write my code
 - I'd like to reuse the middlewares somewhere else
 - I want to easily validate the data
 - I just want the data to be there and be able to take it from other middlewares
 
-#Example
+# Example
 
 ```
 const { middleware, respond, validationMiddleware, spreadMiddleware } = require("express-remix");
@@ -64,7 +64,7 @@ const middlewareThatDependsOnCustomerMiddleware = middleware(({customer}) => con
 ## Unnamed middleware
 `middleware(fn, dependencyArray);`
 
-##Response middleware:
+## Response middleware:
 `respond(fn, dependencyArray);`
 
 Example:
