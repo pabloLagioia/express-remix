@@ -1,0 +1,25 @@
+{
+  "name": "express-remix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pabloLagioia/express-remix.git"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "reuse",
+    "create"
+  ],
+  "author": "pablo.lagioia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pabloLagioia/express-remix/issues"
+  },
+  "homepage": "https://github.com/pabloLagioia/express-remix#readme"
+}
