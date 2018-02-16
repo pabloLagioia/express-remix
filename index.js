@@ -128,6 +128,30 @@ const spreadMiddleware = (name, fields) => (req, res, next) => {
 
 };
 
+const conditionalResponse = fn => async (req, res, next) => {
+
+  try {
+
+    const data = getData(req);
+
+    const response = await fn(data);
+
+    if (!response) {
+      return next();
+    }
+      
+    res.status(response.status || 200);
+    
+    response.headers && Object.keys(response.headers).forEach(header => res.setHeader(header, response.headers[header]));
+    
+    res.end(typeof response.body === "object" ? JSON.stringify(response.body) : response.body);
+
+  } catch (e) {
+    next(e);
+  }
+
+};
+
 module.exports = {
-  middleware, respond, spreadMiddleware, validationMiddleware, MiddlewareDependencyError, ValidationMiddlewareError
+  middleware, respond, spreadMiddleware, validationMiddleware, conditionalResponse, MiddlewareDependencyError, ValidationMiddlewareError
 }
