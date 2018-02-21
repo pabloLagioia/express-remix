@@ -49,8 +49,13 @@ const namedMiddleware = (name, fn, dependencies = []) => async (req, res, next) 
     }
 
     const middlewareResponse = await fn(data);
+    const previousData = req.middlewares[name];
 
-    req.middlewares[name] = middlewareResponse;
+    if (!previousData) {
+      req.middlewares[name] = middlewareResponse;
+    } else {
+      req.middlewares[name] = Object.assign(previousData, middlewareResponse);
+    }
 
     next();
 
