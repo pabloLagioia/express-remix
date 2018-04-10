@@ -22,7 +22,7 @@ class ValidationMiddlewareError extends Error {
 }
 
 const getFieldsFromRequest = req => ({"url": req.originalUrl, "method": req.method, "path": req.path});
-const getData = req => Object.assign({}, req.params, req.query, req.body, req.middlewares, req.middlewares.nameless, getFieldsFromRequest(req));
+const getData = req => Object.assign({}, req.params, req.query, req.body, req.middlewares, req.middlewares.nameless, getFieldsFromRequest(req), req.headers);
 const ensureMiddlewares = req => {
   if (!req.middlewares) {
     req.middlewares = {};
