@@ -157,6 +157,19 @@ const conditionalResponse = fn => async (req, res, next) => {
 
 };
 
+const unwind = name => (req, res, next) => {
+  ensureMiddlewares(req);
+  req.middlewares[name] = req[name];
+  next();
+};
+
 module.exports = {
-  middleware, respond, spreadMiddleware, validationMiddleware, conditionalResponse, MiddlewareDependencyError, ValidationMiddlewareError
-}
+  middleware,
+  respond,
+  spreadMiddleware,
+  validationMiddleware,
+  conditionalResponse,
+  MiddlewareDependencyError,
+  ValidationMiddlewareError,
+  unwind
+};
