@@ -1,8 +1,11 @@
 {
   "name": "express-remix",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive *test*"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/pabloLagioia/express-remix.git"
@@ -18,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/pabloLagioia/express-remix/issues"
   },
-  "homepage": "https://github.com/pabloLagioia/express-remix#readme"
+  "homepage": "https://github.com/pabloLagioia/express-remix#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "sinon": "^7.4.1"
+  }
 }
